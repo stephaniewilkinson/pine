@@ -1,10 +1,10 @@
-defmodule PineWeb.WeatherLive do
+defmodule PineWeb.WishLive do
   use Phoenix.LiveView
 
   def render(assigns) do
     ~L"""
     <div>
-      <form phx-submit="set-location">
+      <form phx-submit="submit-link">
         <input name="location" placeholder="Location" value="<%= @location %>"/>
         <%= @weather %>
       </form>
@@ -13,11 +13,11 @@ defmodule PineWeb.WeatherLive do
   end
 
   def mount(_session, socket) do
-    send(self(), {:put, "Austin"})
+    send(self(), {:put, "http"})
     {:ok, assign(socket, location: nil, weather: "...")}
   end
 
-  def handle_event("set-location", %{"location" => location}, socket) do
+  def handle_event("submit-link", %{"location" => location}, socket) do
     {:noreply, put_location(socket, location)}
   end
 

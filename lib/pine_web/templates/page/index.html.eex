@@ -1,4 +1,4 @@
 <section class="phx-hero">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix LiveView" %></h2>
-  <%= live_render(@conn, PineWeb.WeatherLive) %>
+  <h2>Paste the link to what you pine for:</h2>
+  <%= live_render(@conn, PineWeb.WishLive) %>
 </section>
